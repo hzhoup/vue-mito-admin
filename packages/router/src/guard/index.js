@@ -1,3 +1,6 @@
+import { useTitle } from '@vueuse/core'
+import { useLocale } from '@mito/locale'
+
 function createPageLoadingBarGuard(router) {
   router.beforeEach(to => {
     if (to.meta?.loaded === true) return true
@@ -24,6 +27,16 @@ function createFloatingLayerGuard(router) {
   })
 }
 
+function createPageTitleGuard(router) {
+  const { locale } = useLocale()
+
+  router.afterEach(to => {
+    const title = to.meta?.title?.[locale]
+    const subTitle = import.meta.env.VITE_APP_TITLE
+    useTitle(title ? `${title} | ${subTitle}` : subTitle)
+  })
+}
+
 /**
  * 创建路由守卫
  * @param {import('vue-router').Router} router
@@ -31,4 +44,5 @@ function createFloatingLayerGuard(router) {
 export function createRouterGuard(router) {
   createPageLoadingBarGuard(router)
   createFloatingLayerGuard(router)
+  createPageTitleGuard(router)
 }
