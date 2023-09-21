@@ -4,7 +4,8 @@ import vueJsx from '@vitejs/plugin-vue-jsx'
 /** @type {import('vite').UserConfig} */
 const commonConfig = {
   server: {
-    host: true
+    host: true,
+    open: true
   },
   build: {
     reportCompressedSize: false,

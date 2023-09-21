@@ -6,7 +6,7 @@ import commonConfig from './common'
  * @param {import('vite').UserConfig} options
  * @returns {ReturnType<typeof import('vite').defineConfig>}
  */
-function defineApplicationConfig(options = {}) {
+export function defineApplicationConfig(options = {}) {
   return defineConfig(async ({ command }) => {
     const root = process.cwd()
     const isBuild = command === 'build'
