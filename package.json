@@ -3,10 +3,10 @@
   "packageManager": "pnpm@8.7.6",
   "scripts": {
     "cz": "czg",
-    "lint": "eslint . --ext .vue,.js,.ts,.tsx,.json,.md --max-warnings 0 --cache",
-    "lint:fix": "pnpm run lint --fix",
+    "lint": "turbo lint",
+    "lint:fix": "turbo lint:fix",
     "preinstall": "npx only-allow pnpm",
-    "postinstall": "pnpm run -r --parallel stub",
+    "postinstall": "turbo stub",
     "prepare": "husky install"
   },
   "devDependencies": {
@@ -24,7 +24,8 @@
     "husky": "^8.0.0",
     "jsonc-eslint-parser": "^2.3.0",
     "lint-staged": "^14.0.1",
-    "prettier": "^3.0.3"
+    "prettier": "^3.0.3",
+    "turbo": "^1.10.14"
   },
   "engines": {
     "node": ">=16",

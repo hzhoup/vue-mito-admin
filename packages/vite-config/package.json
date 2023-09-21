@@ -16,6 +16,8 @@
   },
   "types": "./dist/index.d.ts",
   "scripts": {
+    "lint": "eslint src --ext .js --max-warnings 0 --cache",
+    "lint:fix": "pnpm run lint --fix",
     "stub": "unbuild --stub"
   },
   "dependencies": {
