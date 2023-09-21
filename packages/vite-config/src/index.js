@@ -1,5 +1,5 @@
-import { defineConfig, mergeConfig } from 'vite'
 import { resolve } from 'node:path'
+import { defineConfig, mergeConfig } from 'vite'
 import commonConfig from './common'
 
 /**
