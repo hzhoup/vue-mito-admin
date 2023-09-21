@@ -2,10 +2,15 @@
   "private": true,
   "packageManager": "pnpm@8.7.6",
   "scripts": {
+    "cz": "czg",
     "preinstall": "npx only-allow pnpm",
     "prepare": "husky install"
   },
   "devDependencies": {
+    "@commitlint/cli": "^17.7.1",
+    "@commitlint/config-conventional": "^17.7.0",
+    "cz-git": "^1.7.1",
+    "czg": "^1.7.1",
     "eslint": "^8.49.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^9.0.0",
