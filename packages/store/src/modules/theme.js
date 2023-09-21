@@ -8,7 +8,8 @@ export const useThemeStore = defineStore({
     const osTheme = useOsTheme()
 
     return {
-      isDark: osTheme ? osTheme.value === 'dark' : false
+      isDark: osTheme ? osTheme.value === 'dark' : false,
+      followSystemTheme: true
     }
   },
   getters: {
@@ -17,6 +18,9 @@ export const useThemeStore = defineStore({
     }
   },
   actions: {
+    setDarkMode(isDark) {
+      this.isDark = isDark
+    },
     toggleDark() {
       this.isDark = !this.isDark
     }

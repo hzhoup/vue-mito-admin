@@ -13,9 +13,11 @@ import {
   useNotification
 } from 'naive-ui'
 import { useLocale } from '@mito/locale'
-import { useThemeStore } from '@mito/store'
+import { subscribeStore, useThemeStore } from '@mito/store'
 
 defineOptions({ name: 'NProvider' })
+
+subscribeStore()
 
 const { getNaiveTheme } = useThemeStore()
 const { getNaiveLocale, getNaiveDateLocale } = useLocale()
