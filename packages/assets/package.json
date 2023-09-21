@@ -1,0 +1,17 @@
+{
+  "name": "@mito/assets",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "main": "src/index.js",
+  "module": "src/index.js",
+  "types": "src/index.js",
+  "scripts": {
+    "lint": "eslint src --ext .js --max-warnings 0 --cache",
+    "lint:fix": "pnpm run lint --fix"
+  },
+  "dependencies": {
+    "@unocss/reset": "^0.56.0"
+  }
+}

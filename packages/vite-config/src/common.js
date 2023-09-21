@@ -5,6 +5,9 @@ import icons from 'unplugin-icons/vite'
 import iconsResolver from 'unplugin-icons/resolver'
 import components from 'unplugin-vue-components/vite'
 import { FileSystemIconLoader } from 'unplugin-icons/loaders'
+import unoCSS from 'unocss/vite'
+import { presetTypography, presetUno } from 'unocss'
+import transformerDirectives from '@unocss/transformer-directives'
 
 /** @type {import('vite').UserConfig} */
 const commonConfig = {
@@ -40,6 +43,15 @@ const commonConfig = {
           svg.replace(/^<svg\s/, '<svg width="1em" height="1em" ')
         )
       }
+    }),
+    unoCSS({
+      content: {
+        pipeline: {
+          exclude: ['node_modules', 'dist', 'public', 'mock']
+        }
+      },
+      presets: [presetUno(), presetTypography()],
+      transformers: [transformerDirectives()]
     })
   ]
 }
