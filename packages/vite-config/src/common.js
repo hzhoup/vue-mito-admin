@@ -8,6 +8,7 @@ import { FileSystemIconLoader } from 'unplugin-icons/loaders'
 import unoCSS from 'unocss/vite'
 import { presetTypography, presetUno } from 'unocss'
 import transformerDirectives from '@unocss/transformer-directives'
+import vueI18n from '@intlify/unplugin-vue-i18n/vite'
 
 /** @type {import('vite').UserConfig} */
 const commonConfig = {
@@ -25,6 +26,9 @@ const commonConfig = {
       dirs: 'src/views',
       extensions: ['vue'],
       exclude: ['**/components/**/*', '**/modules/**/*']
+    }),
+    vueI18n({
+      jitCompilation: true
     }),
     components({
       dts: false,

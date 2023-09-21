@@ -1,5 +1,9 @@
-<script setup></script>
+<script setup>
+import { NProvider } from '@mito/ui'
+</script>
 
 <template>
-  <router-view />
+  <n-provider>
+    <router-view />
+  </n-provider>
 </template>

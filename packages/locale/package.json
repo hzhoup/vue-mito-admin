@@ -1,0 +1,19 @@
+{
+  "name": "@mito/locale",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "main": "src/index.js",
+  "module": "src/index.js",
+  "types": "src/index.js",
+  "scripts": {
+    "lint": "eslint src --ext .js --max-warnings 0 --cache",
+    "lint:fix": "pnpm run lint --fix"
+  },
+  "dependencies": {
+    "naive-ui": "^2.34.4",
+    "vue": "^3.3.4",
+    "vue-i18n": "^9.4.1"
+  }
+}
