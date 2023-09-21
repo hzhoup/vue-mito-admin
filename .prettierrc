@@ -1,0 +1,15 @@
+{
+  "semi": false,
+  "printWidth": 100,
+  "singleQuote": true,
+  "trailingComma": "none",
+  "arrowParens": "avoid",
+  "overrides": [
+    {
+      "files": [".prettierrc", ".eslintrc", "**/*.json"],
+      "options": {
+        "parser": "json"
+      }
+    }
+  ]
+}
