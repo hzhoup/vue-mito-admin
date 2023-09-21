@@ -12,6 +12,8 @@
   "devDependencies": {
     "@commitlint/cli": "^17.7.1",
     "@commitlint/config-conventional": "^17.7.0",
+    "@mito/router": "workspace:*",
+    "@mito/store": "workspace:*",
     "@mito/vite-config": "workspace:*",
     "cz-git": "^1.7.1",
     "czg": "^1.7.1",
