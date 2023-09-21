@@ -13,9 +13,11 @@ import {
   useNotification
 } from 'naive-ui'
 import { useLocale } from '@mito/locale'
+import { useThemeStore } from '@mito/store'
 
 defineOptions({ name: 'NProvider' })
 
+const { getNaiveTheme } = useThemeStore()
 const { getNaiveLocale, getNaiveDateLocale } = useLocale()
 
 function registerNaiveTools() {
@@ -38,6 +40,7 @@ const NaiveProviderContent = defineComponent({
 
 <template>
   <n-config-provider
+    :theme="getNaiveTheme"
     :date-locale="getNaiveDateLocale"
     :locale="getNaiveLocale"
     class="h-full"
