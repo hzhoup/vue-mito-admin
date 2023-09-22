@@ -1,6 +1,22 @@
 import { useTitle } from '@vueuse/core'
 import { useLocale } from '@mito/locale'
 
+function createPageLoadedGuard(router) {
+  const loadedPageMap = new Map()
+
+  router.beforeEach(to => {
+    Object.assign(to.meta, { loaded: loadedPageMap.has(to.path) })
+
+    return true
+  })
+
+  router.afterEach(to => {
+    loadedPageMap.set(to.path, true)
+
+    return true
+  })
+}
+
 function createPageLoadingBarGuard(router) {
   router.beforeEach(to => {
     if (to.meta?.loaded === true) return true
@@ -42,6 +58,7 @@ function createPageTitleGuard(router) {
  * @param {import('vue-router').Router} router
  */
 export function createRouterGuard(router) {
+  createPageLoadedGuard(router)
   createPageLoadingBarGuard(router)
   createFloatingLayerGuard(router)
   createPageTitleGuard(router)
