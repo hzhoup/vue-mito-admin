@@ -1,6 +1,11 @@
 import { useTitle } from '@vueuse/core'
 import { useLocale } from '@mito/locale'
+import { createPermissionGuard } from './permission'
 
+/**
+ * 路由切换时记录是否已加载过页面
+ * @param {import('vue-router').Router} router
+ */
 function createPageLoadedGuard(router) {
   const loadedPageMap = new Map()
 
@@ -17,6 +22,10 @@ function createPageLoadedGuard(router) {
   })
 }
 
+/**
+ * 路由切换时显示顶部加载条
+ * @param {import('vue-router').Router} router
+ */
 function createPageLoadingBarGuard(router) {
   router.beforeEach(to => {
     if (to.meta?.loaded === true) return true
@@ -33,6 +42,10 @@ function createPageLoadingBarGuard(router) {
   })
 }
 
+/**
+ * 路由切换前销毁所有浮层
+ * @param {import('vue-router').Router} router
+ */
 function createFloatingLayerGuard(router) {
   router.beforeEach(() => {
     window.$dialog?.destroyAll()
@@ -43,6 +56,10 @@ function createFloatingLayerGuard(router) {
   })
 }
 
+/**
+ * 路由加载完成后修改页面对应语言标题
+ * @param {import('vue-router').Router} router
+ */
 function createPageTitleGuard(router) {
   const { locale } = useLocale()
 
@@ -61,5 +78,6 @@ export function createRouterGuard(router) {
   createPageLoadedGuard(router)
   createPageLoadingBarGuard(router)
   createFloatingLayerGuard(router)
+  createPermissionGuard(router)
   createPageTitleGuard(router)
 }
